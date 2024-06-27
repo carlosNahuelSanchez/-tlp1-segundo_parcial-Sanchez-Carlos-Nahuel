@@ -2,7 +2,7 @@ libros = [
     {
         id : 1,
         title : "Señor de los Anillos",
-        author: "Pedrito",
+        author: "Pedro",
         year: 1970
     },
     {
