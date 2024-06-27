@@ -14,9 +14,10 @@ app.get("/:id", (req,res) => {
 
 app.post("/",(req,res)=>{
     const datajson = {
-        idLibro: req.body.idLibro,
-        nombre: req.body.nombre,
-        año: req.body.año
+        id: req.body.id,
+        title: req.body.title,
+        author: req.body.author,
+        year: req.body.year
     }
     libros.push(datajson)
     res.send("Libro Agregado")
@@ -25,12 +26,19 @@ app.post("/",(req,res)=>{
 app.put("/:id", (req,res)=>{
     id = req.params.id
     const datajson = {
-        idLibro: req.body.idLibro,
-        nombre: req.body.nombre,
-        año: req.body.año
+        id: req.body.id,
+        title: req.body.title,
+        author: req.body.author,
+        year: req.body.year
     }
     libros.splice(id-1,1,datajson)
     res.send("Libro Actualizado")
+})
+
+app.delete("/:id", (req,res)=>{
+    id = req.params.id
+    libros.splice(id-1,1)
+    res.send("Libro Eliminado")
 })
 
 app.listen(3000, () => {console.log("Server Running in port", 3000)})
