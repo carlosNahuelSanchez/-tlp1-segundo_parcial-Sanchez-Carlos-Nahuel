@@ -1,15 +1,20 @@
+//Importaciones
 const express = require('express');
 app = express()
 libros = require("./database")
 
+//Middlewares
 app.use(express.json())
 
+//Se crea el ID automatico
 const idGenerado = new Date().getTime()
 
+//Mostrar Libros
 app.get("/", (req, res) => {
     res.json(libros)
 })
 
+//Mostrar libros por ID
 app.get("/:id", (req, res) => {
     id = req.params.id
     const index = libros.findIndex(libro => libro.id == id)
@@ -21,6 +26,7 @@ app.get("/:id", (req, res) => {
     }
 })
 
+//Publicar Libros
 app.post("/", (req, res) => {
     const datajson = {
         id: idGenerado,
@@ -40,6 +46,7 @@ app.post("/", (req, res) => {
     }
 })
 
+//Actualizaar Libros
 app.put("/:id", (req, res) => {
     id = req.params.id
     const datajson = {
@@ -58,6 +65,7 @@ app.put("/:id", (req, res) => {
     }
 })
 
+//Borrar Libros
 app.delete("/:id", (req, res) => {
     id = req.params.id
     const index = libros.findIndex(libro => libro.id == id)
@@ -71,6 +79,5 @@ app.delete("/:id", (req, res) => {
     
 })
 
-
-
+//Se inicia el servidor
 app.listen(3000, () => { console.log("Server Running in port", 3000) })
