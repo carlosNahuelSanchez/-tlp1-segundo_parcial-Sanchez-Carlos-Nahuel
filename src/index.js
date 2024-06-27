@@ -13,13 +13,16 @@ app.get("/:id", (req,res) => {
 })
 
 app.post("/",(req,res)=>{
-    const {idLibro, nombre} = req.body
+    const {idLibro,nombre,año} = req.body
     const datajson = {
         idLibro: req.body.idLibro,
-        nombre: req.body.nombre
+        nombre: req.body.nombre,
+        año: req.body.año
     }
     libros.push(datajson)
     res.send("Libro Agregado")
 })
+
+app
 
 app.listen(3000, () => {console.log("Server Running in port", 3000)})
