@@ -1,0 +1,14 @@
+{
+  "name": "parcial",
+  "version": "1.0.0",
+  "description": "parcial de programacion",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js"
+  },
+  "author": "carlos nahuel sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
